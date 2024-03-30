@@ -71,7 +71,7 @@ app.post("/login", async (req, res) => {
       if (isPasswordMatch) {
         res.sendFile(indexPath);
       } else {
-        res.send("incorrect password");
+        res.render("login", { err_msg : "Incorrect Password.... !" });
       }
     }
   } catch {
