@@ -7,6 +7,12 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-violet-200 flex flex-col justify-center items-center h-screen">
+  <% if(err_msg) { %>
+      <div id="error-msg" style=" text-align: center; border-radius: 10px; padding:10px; color: white; background-color: rgb(233, 69, 69);">
+              <i class="fa-solid fa-circle-x"></i>
+              <%= err_msg %>
+       </div>
+  <% } %>
   <h1 class="text-center text-violet-700 drop-shadow-lg text-xl font-bold">LOGIN</h1>   
   <div class="container m-3 mx-auto min-w-60">
     <form action="/login" method="post" class=" shadow-2xl rounded-md border-violet-500 border-2 p-4 py-8 bg-violet-600 flex justify-center flex-col gap-2 max-w-md mx-auto">
@@ -32,5 +38,15 @@
       </div>
     </form>
   </div>
+
+  <script>
+        setTimeout(function() {
+                var errorMsg = document.getElementById('error-msg');
+                if (errorMsg) {
+                    errorMsg.parentNode.removeChild(errorMsg);
+                }
+                
+            }, 3000);
+    </script>
 </body>
 </html>
