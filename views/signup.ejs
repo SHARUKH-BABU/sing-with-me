@@ -1,29 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignUp</title>
+  <meta charset="UTF-8">
+  <title>SIGN UP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <h1>Sign-Up</h1>
-        <form action="/signup" method="post">
-            <table>
-                <tr>
-                    <td>enter user-id : </td>
-                    <td><input type="text" name="uname" id="uname"></td>
-                </tr>
-                <tr>
-                    <td>enter password : </td>
-                    <td><input type="password" name="upassword" id="upassword"></td>
-                </tr>
-                <tr>
-                    <td><a href="/">Login</a></td>
-                    <td><input type="submit" value="Submit"></td>
-                </tr>
-            </table>
-        </form>
-    </div>
+<body class="bg-violet-200 flex flex-col justify-center items-center h-screen">
+  <h1 class="text-center text-violet-700 drop-shadow-lg text-xl font-bold">SIGN IN</h1>   
+  <div class="container m-3 mx-auto min-w-60">
+    <form action="/signup" method="post" class="shadow-2xl rounded-md border-violet-500 border-2 p-4 py-8 bg-violet-600 flex justify-center flex-col gap-2 max-w-md mx-auto">
+      <div class="form-inputs flex flex-col gap-5 justify-center items-center p-4 rounded-md">
+        <div class="input-block">
+          <label for="uname" class="text-white after:content-['*'] after:ml-0.5 after:text-red-500 text-md font-medium text-slate-700">
+            User ID 
+          </label>
+          <input type="text" name="uname" id="uname" required class="mx-2 md:mx-1 focus:outline-none rounded-md px-2 py-1">
+        </div>
+        <div class="input-block">
+          <label for="email" class="text-white after:content-['*'] after:ml-0.5 after:text-red-500 text-md font-medium text-slate-700">
+            Email 
+          </label>
+          <input type="email" name="email" id="email" required class="mx-2 md:mx-1 focus:outline-none rounded-md px-2 py-1">
+        </div>
+        <div class="input-block">
+          <label for="password" class="text-white after:content-['*'] after:ml-0.5 after:text-red-500 text-md font-medium text-slate-700">
+            Password 
+          </label>
+          <input type="password" name="upassword" id="upassword" required class="mx-2 md:mx-1 focus:outline-none rounded-md px-2 py-1">
+        </div>
+        <div class="input-block">
+          <label for="confirm_password" class="text-white after:content-['*'] after:ml-0.5 after:text-red-500 text-md font-medium text-slate-700">
+            Confirm Password 
+          </label>
+          <input type="password" name="cpassword" id="cpassword" required class="mx-2 md:mx-1 focus:outline-none rounded-md px-2 py-1">
+        </div>
+        <div class="input-block">
+          <label for="phone" class="text-white after:content-['*'] after:ml-0.5 after:text-red-500 text-md font-medium text-slate-700">
+            Phone Number 
+          </label>
+          <input type="number" name="phone" id="phone" required class="mx-2 md:mx-1 focus:outline-none rounded-md px-2 py-1">
+        </div>
+      </div>
+      <div class="submitting flex justify-between p-5">
+        <p class="text-gray-300 text-sm">Already have an account <span class="text-red-500 drop-shadow-xl">?</span><br><a href="/" class=" text-gray-200 font-bold underline">Login</a></p>
+        <button type="submit" class="mx-auto bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 p-2 rounded-md w-[50%]">
+          SIGN UP
+        </button>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
