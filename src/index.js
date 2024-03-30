@@ -1,3 +1,5 @@
+// 60
+
 const express = require("express");
 const path = require("path");
 const bcrypt = require("bcrypt");
@@ -16,7 +18,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.render("login");
+  res.render("login", {err_msg : null, reg_msg : null});
 });
 
 app.get("/usersData", async (req, res) => {
@@ -25,7 +27,7 @@ app.get("/usersData", async (req, res) => {
 });
 
 app.get("/signup", (req, res) => {
-  res.render("signup");
+  res.render("signup", {err_msg : null});
 });
 
 //  signup :
@@ -38,7 +40,7 @@ app.post("/signup", async (req, res) => {
 
   const existngUser = await users.findOne({ name: data.name });
   if (existngUser) {
-    res.send("user-id already exists...!");
+    res.render("signup", { err_msg : " User already exists ... !" });
   } else {
     // password encoding :
     const saltRounds = 10;
@@ -46,7 +48,7 @@ app.post("/signup", async (req, res) => {
     data.password = hashedPassword;
     const userdata = await users.insertMany(data);
     console.log("\ndata : \n" + userdata);
-    res.render("login");
+    res.render("login", {err_msg : null, reg_msg : "registered successfully...! "});
   }
 });
 //  login :
@@ -59,7 +61,7 @@ app.post("/login", async (req, res) => {
     };
     const check = await users.findOne({ name: data.name });
     if (!check) {
-      res.send("no user-id found....");
+      res.render("login", { err_msg : "User not found !" });
     } else {
       const isPasswordMatch = await bcrypt.compare(
         data.password,
