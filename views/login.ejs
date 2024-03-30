@@ -1,29 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <title>LOGIN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <h1>Login</h1>
-        <form action="/login" method="post">
-            <table>
-                <tr>
-                    <td>enter user-id : </td>
-                    <td><input type="text" name="uname" id="uname" required autocomplete="off"></td>
-                </tr>
-                <tr>
-                    <td>enter password : </td>
-                    <td><input type="password" name="upassword" id="upassword" required autocomplete="off"></td>
-                </tr>
-                <tr>
-                    <td><a href="signup">SignUp</a></td>
-                    <td><input type="submit" value="Login"></td>
-                </tr>
-            </table>
-        </form>
-    </div>
+<body class="bg-violet-200 flex flex-col justify-center items-center h-screen">
+  <h1 class="text-center text-violet-700 drop-shadow-lg text-xl font-bold">LOGIN</h1>   
+  <div class="container m-3 mx-auto min-w-60">
+    <form action="/login" method="post" class=" shadow-2xl rounded-md border-violet-500 border-2 p-4 py-8 bg-violet-600 flex justify-center flex-col gap-2 max-w-md mx-auto">
+      <div class="form-inputs flex flex-col gap-5 justify-center items-center p-4 rounded-md">
+        <div class="input-block">
+          <label for="uname" class="text-white after:content-['*'] after:ml-0.5 after:text-red-500 text-md font-medium text-slate-700">
+            USER-ID 
+          </label>
+          <input type="text" name="uname"  autocomplete="off" id="uname" required class="mx-2 md:mx-1 focus:outline-none rounded-md px-2 py-1">
+        </div>
+        <div class="input-block">
+          <label for="upassword" class="text-white after:content-['*'] after:ml-0.5 after:text-red-500 text-md font-medium text-slate-700">
+            PASSWORD 
+          </label>
+          <input type="text" autocomplete="off" name="upassword" id="upassword"  required class="mx-2 md:mx-1 focus:outline-none rounded-md px-2 py-1">
+        </div>
+      </div>
+      <div class="submitting flex justify-between p-5">
+        <p class="text-gray-300">dont have account <span class="text-red-500 ">?</span><br><a href="sigun" class="text-gray-200 font-bold underline">Sign-In</a></p>
+        <button type="submit" class="mx-auto bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 p-2 rounded-md w-[50%] ">
+          LOGIN
+        </button>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
